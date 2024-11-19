@@ -1,7 +1,7 @@
 # 🖥️ Interpretador MEPA
 
 ## ✒️ Autor
-**Deyvid Junior Limachi Alejo** - [GitHub](https://github.com/GuilhermePiresLopes)
+**Deyvid Junior Limachi Alejo** - [GitHub](https://github.com/deyvidjunior/COMPILADORES---PROVA-.git)
 
 ## 📋 Sobre o Projeto
 Um interpretador para a linguagem MEPA (Máquina de Execução de Português Algorítmico) desenvolvido em Python. Este projeto implementa um ambiente REPL (Read-Eval-Print-Loop) completo para execução e depuração de códigos MEPA.
