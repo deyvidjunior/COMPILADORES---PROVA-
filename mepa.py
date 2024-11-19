@@ -67,6 +67,15 @@ class MEPAInterpreter:
                 return False
             elif op == "NADA":  # Não fazer nada
                 pass
+            elif op in ["CMEG", "CMMA", "CMME", "CMAG", "CMIG", "CMDG"]:
+                b = self.stack.pop()
+                a = self.stack.pop()
+                if op == "CMEG": self.stack.append(1 if a <= b else 0)  # Menor o igual
+                elif op == "CMMA": self.stack.append(1 if a > b else 0)  # Mayor
+                elif op == "CMME": self.stack.append(1 if a < b else 0)  # Menor
+                elif op == "CMAG": self.stack.append(1 if a >= b else 0) # Mayor o igual
+                elif op == "CMIG": self.stack.append(1 if a == b else 0) # Igual
+                elif op == "CMDG": self.stack.append(1 if a != b else 0) # Diferente
             else:
                 print(f"Instrução não reconhecida: {op}")
                 return False
