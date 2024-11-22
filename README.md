@@ -3,143 +3,135 @@
 ## ✒️ Autor
 **Deyvid Junior Limachi Alejo** - [GitHub](https://github.com/deyvidjunior/COMPILADORES---PROVA-.git)
 
-## 📋 Sobre o Projeto
-Um interpretador para a linguagem MEPA (Máquina de Execução de Português Algorítmico) desenvolvido em Python. Este projeto implementa um ambiente REPL (Read-Eval-Print-Loop) completo para execução e depuração de códigos MEPA.
+# 📚 Documentação do Interpretador MEPA
 
-## 📋 Pré-requisitos
-- Python 3.6 ou superior
+## Introdução 🤔
+MEPA (Máquina de Execução de Programas Acadêmicos) é um interpretador educacional que simula uma máquina de pilha simples, projetado para auxiliar no aprendizado de conceitos fundamentais de programação e arquitetura de computadores.
 
-## 🎮 Guia Completo de Comandos
+## Arquitetura Básica 🔧
+O interpretador opera com duas estruturas principais:
+- 📦 **Memória**: Armazena variáveis e dados do programa
+- 📚 **Pilha**: Gerencia operações e cálculos temporários
 
-### Comandos Básicos de Execução
-# 1. Iniciar o interpretador
+## Conjunto de Instruções 📝
+| Categoria | Comando | Descrição |
+|-----------|---------|-----------|
+| **Controle de Programa** |
+| | `INPP` | Inicializa programa |
+| | `PARA` | Finaliza execução |
+| | `NADA` | Instrução nula |
+| **Gestão de Memória** |
+| | `AMEM n` | Aloca n posições de memória |
+| | `DMEM n` | Desaloca n posições de memória |
+| **Operações com Dados** |
+| | `CRCT k` | Carrega constante k na pilha |
+| | `CRVL n` | Carrega valor da memória[n] |
+| | `ARMZ n` | Armazena valor na memória[n] |
+| **Operações Aritméticas** |
+| | `SOMA` | Soma dois valores do topo |
+| | `SUBT` | Subtrai dois valores |
+| | `MULT` | Multiplica dois valores |
+| | `DIVI` | Divide dois valores |
+| | `INVR` | Inverte sinal |
+| **Comparações** |
+| | `CMEG` | Menor ou igual |
+| | `CMMA` | Maior |
+| | `CMME` | Menor |
+| | `CMAG` | Maior ou igual |
+| | `CMIG` | Igual |
+| | `CMDG` | Diferente |
+| **E/S** |
+| | `IMPR` | Imprime valor do topo |
+
+## Utilização do Interpretador 🎮
+
+### Comandos do Sistema
+```bash
+# Iniciar interpretador
 python mepa.py
 
-# 2. Carregar um arquivo
-> LOAD factorial.mepa
+# Comandos disponíveis no prompt
+LOAD arquivo.mepa  # Carrega programa
+RUN               # Executa programa
+LIST              # Lista código
+DEBUG             # Inicia modo debug
+NEXT              # Próxima instrução (debug)
+STACK             # Mostra pilha
+EXIT              # Encerra interpretador
+```
 
-# 3. Executar o programa
-> RUN
+### Exemplo: Cálculo de Fatorial
+```mepa
+10 INPP
+20 AMEM 3
+30 CRCT 5    # Número para calcular fatorial
+40 ARMZ 1    # Armazena na memória
+...
+270 PARA
+```
 
-# 4. Sair do programa
-> EXIT
+## Modo Debug 🔍
+O modo debug permite:
+- Execução passo a passo
+- Visualização do estado da pilha
+- Acompanhamento das instruções
+- Análise de valores na memória
 
-### Comandos de Visualização e Edição
-# Listar o código atual
-> LIST
 
-# Inserir uma nova linha
-> INS 10 INPP
-> INS 20 AMEM 3
-> INS 30 CRCT 5
+## Exemplo: Programa Fatorial 🌟
 
-# Deletar uma linha específica
-> DEL 30
+### O que é fatorial?
+- É a multiplicação de um número por todos os números menores que ele até 1
+- Exemplo: 5! = 5 x 4 x 3 x 2 x 1 = 120
 
-# Deletar um intervalo de linhas
-> DEL 20 40
+### Como o programa factorial.mepa funciona:
+1. ▶️ Inicia o programa
+2. 📥 Guarda o número 5
+3. 🔄 Multiplica: 5 x 4 x 3 x 2 x 1
+4. 📤 Mostra o resultado (120)
+5. ⏹️ Termina
 
-### Comandos de Depuração
-# Iniciar modo de depuração
-> DEBUG
+## Dicas Importantes 💡
+- Use `LIST` para ver seu código
+- `DEBUG` ajuda a entender passo a passo
+- Não esqueça de `SAVE` antes de sair
+- Use `HELP` se precisar de ajuda
 
-# Executar próxima instrução
-> NEXT
+## Erros Comuns e Soluções 🚨
+1. **Arquivo não encontrado**
+   - Verifique se o nome está correto
+   - Confira se está na pasta certa
 
-# Ver conteúdo da pilha
-> STACK
+2. **Comando não reconhecido**
+   - Digite os comandos exatamente como mostrado
+   - Comandos são em MAIÚSCULAS
 
-# Sair do modo de depuração
-> STOP
+## Precisa de Ajuda? 🆘
+- Use `LIST` para ver o código atual
+- `DEBUG` + `NEXT` para ver passo a passo
+- `STACK` mostra os números na pilha
 
-### Comandos de Arquivo
-# Salvar alterações
-> SAVE
+## Requisitos 📋
+- Python 3.6 ou mais recente
+- Arquivo .mepa para executar
 
-# Carregar outro arquivo
-> LOAD outro_exemplo.mepa
+## Para Iniciantes 🌱
+1. Comece com programas simples
+2. Use o modo DEBUG para entender cada passo
+3. Experimente modificar os números no factorial.mepa
+4. Pratique com os comandos básicos primeiro
 
-### Exemplo de Sessão Completa
-# Iniciar o programa
-python mepa.py
+---
 
-# Carregar arquivo de fatorial
-> LOAD factorial.mepa
+## Requisitos Técnicos ⚙️
+- Python 3.6+
+- Sistema operacional: Windows/Linux/MacOS
 
-# Verificar o código
-> LIST
-
-# Executar o programa
-> RUN
-
-# Testar depuração
-> DEBUG
-> NEXT
-> STACK
-> STOP
-
-# Fazer alterações
-> INS 35 CRCT 6
-> LIST
-> DEL 35
-> LIST
-
-# Salvar e sair
-> SAVE
-> EXIT
-
-### Dicas Importantes
-
-1. **Carregamento de Arquivos**
-   - Use o caminho completo se o arquivo não estiver na pasta atual
-   - Exemplo: LOAD C:\Users\Usuario\factorial.mepa
-
-2. **Edição de Código**
-   - Números de linha devem ser positivos
-   - Mantenha espaço entre número e instrução
-   - Use LIST após edições para confirmar mudanças
-
-3. **Depuração**
-   - DEBUG deve ser usado antes de NEXT
-   - STACK mostra estado atual da pilha
-   - STOP pode ser usado a qualquer momento
-
-4. **Salvamento**
-   - SAVE antes de EXIT para não perder alterações
-   - Sistema perguntará sobre alterações não salvas
-
-### Sequência Recomendada para Testes
-
-1. Carregar arquivo:
-> LOAD factorial.mepa
-
-2. Verificar conteúdo:
-> LIST
-
-3. Executar normalmente:
-> RUN
-
-4. Testar depuração:
-> DEBUG
-> NEXT
-> STACK
-> STOP
-
-5. Testar edição:
-> INS 35 CRCT 6
-> LIST
-> DEL 35
-> LIST
-
-6. Finalizar:
-> SAVE
-> EXIT
-
-### Observações Finais
-- Todos os comandos são case-insensitive (LOAD = load)
-- Use Ctrl+C para interromper execução
-- Comentários em arquivos MEPA começam com #
-- Sistema pergunta sobre salvar ao sair
+## Observações Importantes ⚠️
+- Números de linha devem ser únicos
+- Instruções são case-insensitive
+- Comentários usam #
+- Salve alterações antes de sair
 
 ## 🛠️ Estrutura do Projeto
 projeto/
@@ -147,3 +139,6 @@ projeto/
 ├── mepa.py           # Interpretador MEPA
 ├── factorial.mepa    # Exemplo de programa
 └── README.md         # Este arquivo
+
+---
+Desenvolvido para fins educacionais 📚| Versão 1.0
