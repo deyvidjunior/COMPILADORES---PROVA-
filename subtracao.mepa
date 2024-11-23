@@ -1,0 +1,14 @@
+10 INPP           # Inicia o programa
+15 AMEM 3        # Aloca memória
+20 CRCT 7        # Primeiro número (7)
+30 ARMZ 0        # Armazena 7 na posição 0
+40 CRCT 3        # Segundo número (3)
+50 ARMZ 1        # Armazena 3 na posição 1
+60 CRVL 0        # Carrega o 7
+70 CRVL 1        # Carrega o 3
+80 SUBT          # Subtrai (7 - 3)
+90 ARMZ 2        # Armazena resultado
+100 CRVL 2       # Carrega resultado
+110 IMPR         # Imprime resultado
+120 DMEM 3       # Libera memória
+130 PARA         # Termina programa 

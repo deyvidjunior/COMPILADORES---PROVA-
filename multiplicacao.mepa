@@ -1,0 +1,14 @@
+10 INPP           # Inicia o programa
+15 AMEM 3        # Aloca memória
+20 CRCT 5        # Primeiro número (5)
+30 ARMZ 0        # Armazena 5 na posição 0
+40 CRCT 4        # Segundo número (4)
+50 ARMZ 1        # Armazena 4 na posição 1
+60 CRVL 0        # Carrega o 5
+70 CRVL 1        # Carrega o 4
+80 MULT          # Multiplica (5 * 4)
+90 ARMZ 2        # Armazena resultado
+100 CRVL 2       # Carrega resultado
+110 IMPR         # Imprime resultado
+120 DMEM 3       # Libera memória
+130 PARA         # Termina programa 

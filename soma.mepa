@@ -1,0 +1,14 @@
+10 INPP           # Inicia o programa
+15 AMEM 3        # Aloca memória para as variáveis
+20 CRCT 5        # Primeiro número (5)
+30 ARMZ 0        # Armazena o 5 na posição 0
+40 CRCT 3        # Segundo número (3)
+50 ARMZ 1        # Armazena o 3 na posição 1
+60 CRVL 0        # Carrega o valor da posição 0 (5)
+70 CRVL 1        # Carrega o valor da posição 1 (3)
+80 SOMA          # Soma os dois valores
+90 ARMZ 2        # Armazena o resultado na posição 2
+100 CRVL 2       # Carrega o resultado
+110 IMPR         # Imprime o resultado
+120 DMEM 3       # Libera a memória
+130 PARA         # Termina o programa
