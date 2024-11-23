@@ -1,0 +1,27 @@
+10 INPP
+20 AMEM 5        # Principal, taxa, tempo, resultado, temp
+30 CRCT 1000     # Principal (P = 1000)
+40 ARMZ 0
+50 CRCT 10       # Taxa (i = 10% = 0.1)
+60 CRCT 100
+70 DIVI          # Converte para decimal
+80 ARMZ 1
+90 CRCT 2        # Tempo (n = 2 anos)
+100 ARMZ 2
+
+# Calcula (1 + i)
+110 CRCT 1
+120 CRVL 1       # Taxa
+130 SOMA         # 1 + i
+140 ARMZ 3       # Resultado parcial
+
+# Multiplica pelo principal
+150 CRVL 0       # Principal
+160 CRVL 3       # (1 + i)
+170 MULT
+180 ARMZ 3       # Resultado final
+
+190 CRVL 3
+200 IMPR
+210 DMEM 5
+220 PARA 
