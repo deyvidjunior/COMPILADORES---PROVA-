@@ -76,6 +76,14 @@ class MEPAInterpreter:
                 elif op == "CMAG": self.stack.append(1 if a >= b else 0) # Mayor o igual
                 elif op == "CMIG": self.stack.append(1 if a == b else 0) # Igual
                 elif op == "CMDG": self.stack.append(1 if a != b else 0) # Diferente
+            elif op == "DSVF":  # Desvio Se Falso
+                target = int(parts[1])
+                condition = self.stack.pop()
+                if condition == 0:  # Se falso
+                    self.program_counter = target - 1
+            elif op == "DSVS":  # Desvio Sempre
+                target = int(parts[1])
+                self.program_counter = target - 1
             else:
                 print(f"Instrução não reconhecida: {op}")
                 return False
