@@ -3,7 +3,7 @@ import os
 
 class MEPAInterpreter:
     """
-    Interpretador para a linguagem MEPA (Máquina de Execução de Programas Acadêmicos)
+    Interpretador para a linguagem MEPA
     """
     def __init__(self):
         # Lista para armazenar valores na memória
