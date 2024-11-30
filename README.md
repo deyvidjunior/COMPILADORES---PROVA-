@@ -58,6 +58,7 @@ INS n instrucao   # Insere instrução na linha n
 DEL n [m]         # Deleta linha n (ou linhas n até m)
 DEBUG             # Inicia modo debug
 NEXT              # Próxima instrução (debug)
+STOP              # Para a execução do programa
 STACK             # Mostra pilha
 CLEAR_HISTORY     # Limpa pilha e memória
 EXIT              # Encerra interpretador
