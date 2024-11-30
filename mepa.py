@@ -3,7 +3,7 @@ import os
 
 class MEPAInterpreter:
     """
-    Interpretador para a linguagem MEPA
+    Interpretador para a linguagem MEPA (Máquina de Execução de Programas Acadêmicos)
     """
     def __init__(self):
         # Lista para armazenar valores na memória
@@ -22,6 +22,10 @@ class MEPAInterpreter:
         self.modified: bool = False
         # Dicionário para armazenar rótulos
         self.labels: Dict[str, int] = {}
+        # Novo dicionário para histórico da pilha
+        self.debug_stack_history = {}
+        # Contador para passos no debug
+        self.debug_step = 0
 
     def execute_instruction(self, instruction: str) -> bool:
         """
@@ -32,7 +36,6 @@ class MEPAInterpreter:
 
         try:
             if op == "INPP":  # Iniciar Programa
-                self.stack = []
                 self.memory = []
             elif op == "AMEM":  # Alocar Memória
                 m = int(parts[1])
@@ -62,7 +65,7 @@ class MEPAInterpreter:
             elif op == "INVR":  # Inverter sinal
                 self.stack[-1] = -self.stack[-1]
             elif op == "IMPR":  # Imprimir
-                print(self.stack.pop())
+                print(self.stack[-1])
             elif op == "PARA":  # Parar programa
                 return False
             elif op == "NADA":  # Não fazer nada
@@ -185,7 +188,6 @@ class MEPAInterpreter:
             return
 
         self.program_counter = min(self.code.keys())
-        self.stack = []
         self.memory = []
 
         while self.program_counter in self.code:
@@ -202,16 +204,23 @@ class MEPAInterpreter:
 
         if self.program_counter in self.code:
             instruction = self.code[self.program_counter]
-            print(f"{self.program_counter} {instruction}")
+            print(instruction)  # Imprime a instrução
+            
             if self.execute_instruction(instruction):
                 self.program_counter = next((k for k in sorted(self.code.keys()) 
                                            if k > self.program_counter), -1)
-            self.show_stack()
         else:
             print("Fim do programa")
             self.debug_mode = False
 
     def show_stack(self) -> None:
+        """
+        Mostra o conteúdo da pilha independente do modo de depuração
+        """
+        if not self.stack:
+            print("Pilha vazia")
+            return
+        
         print("Conteúdo da pilha:")
         for i, value in enumerate(self.stack):
             print(f"{i}: {value}")
@@ -230,6 +239,13 @@ class MEPAInterpreter:
 
                 cmd = command[0].upper()
                 args = command[1:]
+
+                if cmd == "CLEAR_HISTORY":
+                    self.clear_state()
+                    print("Estado limpo: pilha e memória foram resetadas")
+                    if self.debug_mode:
+                        self.program_counter = min(self.code.keys())
+                    continue  # Adicionado para processar o comando em qualquer modo
 
                 if cmd == "EXIT":
                     if self.modified:
@@ -281,6 +297,14 @@ class MEPAInterpreter:
                 break
             except Exception as e:
                 print(f"Erro: {str(e)}")
+
+    def clear_state(self) -> None:
+        """
+        Limpa o estado atual do interpretador (pilha e memória)
+        """
+        self.stack.clear()
+        self.memory.clear()
+        print("Pilha e memória limpas")
 
 def main():
     interpreter = MEPAInterpreter()
