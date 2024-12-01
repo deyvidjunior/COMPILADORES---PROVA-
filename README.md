@@ -4,9 +4,9 @@
 **Deyvid Junior Limachi Alejo** - [GitHub](https://github.com/deyvidjunior/COMPILADORES---PROVA-.git)
 
 ## Integrantes do grupo
-**Yago Thanus Santos Lima - RA: 2200839**
-**Julia Barbosa de Freitas - RA: 2200820**
-**Luiz Ricardo dos Santos - RA: 1903937**
+Yago Thanus Santos Lima - RA: 2200839
+Julia Barbosa de Freitas - RA: 2200820
+Luiz Ricardo dos Santos - RA: 1903937
 
 # 📚 Documentação do Interpretador MEPA
 
