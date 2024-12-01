@@ -4,6 +4,7 @@
 **Deyvid Junior Limachi Alejo** - [GitHub](https://github.com/deyvidjunior/COMPILADORES---PROVA-.git)
 
 ## 👥 Integrantes
+- **Deyvid Junior Limachi Alejo**
 - **Yago Thanus Santos Lima**
 - **Julia Barbosa de Freitas** 
 - **Luiz Ricardo dos Santos**
